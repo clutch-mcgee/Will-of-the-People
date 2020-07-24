@@ -179,7 +179,7 @@ ideas = {
 				always = no # focus
 			}
 			modifier = {
-			neutrality_drift = -0.07
+			neutrality_drift = -0.05
 			fascism_drift = -0.05
 			democratic_drift = -0.05
 			}
