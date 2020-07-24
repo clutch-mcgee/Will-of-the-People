@@ -1,0 +1,20 @@
+spriteTypes = {
+#eco and con laws
+	spriteType = {
+		name = "GFX_idea_reformed_economy"
+		textureFile = "gfx/interface/ideas/reformed_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_reformed_conscription"
+		textureFile = "gfx/interface/ideas/reformed_conscription.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_emergency_state"
+		textureFile = "gfx/interface/ideas/emergency_state.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_emergency_draft"
+		textureFile = "gfx/interface/ideas/emergency_draft.dds"
+	}
+	
+}

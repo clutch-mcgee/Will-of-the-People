@@ -1,0 +1,531 @@
+###########################WOTP#########################
+SOV_exiles = {
+
+	SOV_liberals = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_liberals
+			communism > 0.7
+		}
+
+
+		cost = 15
+		days_remove = 5
+
+		modifier = {
+			
+		}
+
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.03
+			}
+		}
+	}
+	
+	SOV_nationalists = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_nationalists
+			communism > 0.7
+		}
+
+
+
+		cost = 20
+		days_remove = 5
+
+		modifier = {
+			
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+		}
+	}
+	
+	SOV_legitimists = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_legitimists
+			communism > 0.7
+			NOT = { has_completed_focus = SOV_national_salvation_front }
+		}
+
+
+		cost = 10
+		days_remove = 5
+
+		modifier = {
+			
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+		}
+	}
+}
+	
+SOV_kremlin = {
+
+	SOV_planning = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 10
+		days_remove = 7
+
+		modifier = {
+			political_power_gain = -1
+		}
+
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			add_political_power = 50
+		}
+	}
+	
+	SOV_apparatus = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_infiltration
+			has_completed_focus = SOV_national_salvation_front
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+
+		cost = 100
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.07
+			war_support_weekly = -0.07
+			political_power_gain = -1
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_political_power = 150
+		}
+	}
+	
+	SOV_gurantees = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_infiltration
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 10
+		days_remove = 3
+
+		modifier = {
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			
+		}
+	}
+	
+	SOV_documents = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 40
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.03
+			war_support_weekly = -0.03
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			
+		}
+	}
+	
+	SOV_bribes = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 50
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.05
+			war_support_weekly = -0.05
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			add_political_power = 30
+			
+		}
+	}
+	
+	SOV_killer_groups = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 70
+		days_remove = 14
+
+		modifier = {
+			war_support_weekly = -0.07
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			add_political_power = 50
+		}
+	}
+	
+	SOV_launch = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			
+		}
+
+
+		cost = 200
+		days_remove = 7
+
+		modifier = {
+			
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			country_event = kremlin.0
+		}
+	}
+}
+
+	
+SOV_guard = {
+
+	SOV_planning_2 = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			NOT = { has_decision = SOV_launch_2 }
+		}
+
+
+		cost = 10
+		days_remove = 7
+
+		modifier = {
+			political_power_gain = -1
+		}
+
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			add_political_power = 50
+		}
+	}
+	
+	SOV_find_whites = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_infiltration
+			has_completed_focus = SOV_national_salvation_front
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+
+		cost = 100
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.07
+			war_support_weekly = -0.07
+			political_power_gain = -1
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_political_power = 150
+		}
+	}
+	
+	SOV_dissidents = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_infiltration
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 10
+		days_remove = 3
+
+		modifier = {
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			
+		}
+	}
+	
+	SOV_contraband = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 40
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.03
+			war_support_weekly = -0.03
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			
+		}
+	}
+	
+	SOV_garrisons = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 50
+		days_remove = 14
+
+		modifier = {
+			stability_weekly = -0.05
+			war_support_weekly = -0.05
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			add_political_power = 30
+			
+		}
+	}
+	
+	SOV_appeal = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			has_completed_focus = SOV_preparations
+			NOT = { has_decision = SOV_launch }
+		}
+
+
+		cost = 70
+		days_remove = 14
+
+		modifier = {
+			war_support_weekly = -0.07
+			political_power_gain = -1
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			add_political_power = 50
+		}
+	}
+	
+	SOV_launch_2 = {
+
+		icon = generic_foreign_policy
+
+
+		available = {
+			
+		}
+
+
+		cost = 200
+		days_remove = 7
+
+		modifier = {
+			
+		}
+		
+		visible = {
+			
+		}
+
+		remove_effect = {
+			
+			country_event = guard.0
+		}
+	}
+}

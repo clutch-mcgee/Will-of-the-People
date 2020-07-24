@@ -1,0 +1,18 @@
+##########################EVENTS#############
+Soviet
+wotp_soviet events 1 to 99 = main events and focuses
+
+from 100 to 199 = flavour and fixed trigger/time
+200+ = reserve
+
+
+
+
+state id 
+#kazakh 407 406 402 587 583 404 588 589 590 586 
+#kuban 232 233 234 235 236 237 238 218 137 685
+#asia 585 405 732 742 584
+#caucasus 229 230 231
+#bel 206 207 204 241 194
+#ukr 197 192 196 200 226 227 228 221 259 203 198 199 201 202 193 225
+#rus 219 210 246 247 253 252 256 249 652

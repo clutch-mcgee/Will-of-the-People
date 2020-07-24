@@ -1,0 +1,69 @@
+################
+#### SOVIET ####
+################
+
+SOV_exiles = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+
+	available = {
+		has_completed_focus = SOV_exiles
+	}
+
+	visible = {
+		has_completed_focus = SOV_exiles
+		NOT = {has_completed_focus = SOV_great_purge}
+		NOT = {has_completed_focus = SOV_op_white_kremlin}
+	}
+}
+
+SOV_kremlin = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+
+	available = {
+		has_completed_focus = SOV_infiltration
+	}
+
+	visible = {
+		has_completed_focus = SOV_infiltration
+		NOT = {has_completed_focus = SOV_great_purge}
+		NOT = {has_completed_focus = SOV_op_white_kremlin}
+	}
+}
+
+SOV_guard = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+
+	available = {
+		has_completed_focus = SOV_noble_treaty
+	}
+
+	visible = {
+		has_completed_focus = SOV_noble_treaty
+		NOT = {has_completed_focus = SOV_great_purge}
+		NOT = {has_completed_focus = SOV_op_white_guard}
+	}
+}
+
+SOV_assembly = {
+	icon = usa_congress
+	allowed = {
+		original_tag = SOV
+	}
+	available = {
+		has_completed_focus = SOV_federal_assembly
+	}
+	visible = {has_completed_focus = SOV_federal_assembly}
+	scripted_gui = sov_assembly_decision_ui	
+
+	priority = 85
+}
+

@@ -1,0 +1,1591 @@
+focus_tree = {
+	id = russian_fed_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOV
+		}
+	}
+	continuous_focus_position = { x = 2600, y = 1400 }
+	default = no
+	focus = {
+		id = SOV_gurantee_liberties
+		icon = GFX_focus_generic_treaty
+		cost = 4.00
+		x = 21
+		y = 0
+			available = {
+					NOT = {
+							has_government = communism
+						}
+				}
+			completion_reward = {
+					add_ideas = SOV_free_proc
+					country_event = kremlin.11
+				}
+
+	}
+	focus = {
+		id = SOV_second_home_of_free
+		icon = GFX_goal_support_democracy
+		cost = 6.00
+		prerequisite = {
+			focus = SOV_gurantee_liberties
+		}
+		x = 19
+		y = 1
+			completion_reward = {
+					set_politics = {
+							ruling_party = democratic
+						}
+					set_party_name = {
+							ideology = democratic
+							long_name = SOV_democratic_party_ndpr_long
+							name = SOV_democratic_party_ndpr
+						}
+					add_country_leader_trait = figurehead_president
+					add_country_leader_trait = hawk
+				}
+
+	}
+	focus = {
+		id = SOV_secular_state
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 3.00
+		prerequisite = {
+			focus = SOV_second_home_of_free
+		}
+		x = 11
+		y = 2
+			completion_reward = {
+					custom_effect_tooltip = SOV_relig_tt
+					SOV = {
+							country_event = wotp_soviet.3
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_science_ministry
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_secular_state
+		}
+		x = 9
+		y = 3
+			completion_reward = {
+					add_ideas = SOV_min_sci
+				}
+
+	}
+	focus = {
+		id = SOV_peoples_alliance
+		icon = GFX_focus_usa_union_representation_act
+		cost = 6.00
+		prerequisite = {
+			focus = SOV_second_home_of_free
+		}
+		x = 17
+		y = 2
+			completion_reward = {
+					custom_effect_tooltip = SOV_fed_tt
+					SOV = {
+							country_event = wotp_soviet.4
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_population_control
+		icon = GFX_focus_generic_concessions
+		cost = 4.00
+		prerequisite = {
+			focus = SOV_peoples_alliance
+		}
+		prerequisite = {
+			focus = SOV_secular_state
+		}
+		x = 11
+		y = 3
+			available = {
+					has_completed_focus = SOV_healthcare_ministry
+				}
+			completion_reward = {
+					SOV = {
+							country_event = wotp_soviet.1
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_federal_assembly
+		icon = GFX_focus_generic_military_academy
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_peoples_alliance
+		}
+		x = 14
+		y = 3
+			completion_reward = {
+					custom_effect_tooltip = SOV_coun_tt
+					hidden_effect = {
+							set_variable = {
+									var = councillors_support
+									value = 73
+								}
+							set_variable = {
+									var = councillors_total
+									value = 170
+								}
+							set_variable = {
+									var = deputies_support
+									value = 241
+								}
+							set_variable = {
+									var = deputies_total
+									value = 450
+								}
+							SOV_recalc_assembly_icon_frames = yes
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_culture_ministry
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_federal_assembly
+		}
+		prerequisite = {
+			focus = SOV_population_control
+		}
+		x = 12
+		y = 4
+			completion_reward = {
+					add_ideas = SOV_min_cult
+				}
+
+	}
+	focus = {
+		id = SOV_affairs_ministry
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_federal_assembly
+		}
+		x = 15
+		y = 4
+			completion_reward = {
+					add_ideas = SOV_min_dip
+				}
+
+	}
+	focus = {
+		id = SOV_russian_legionaries
+		icon = GFX_focus_generic_little_entente
+		cost = 6.00
+		prerequisite = {
+			focus = SOV_affairs_ministry
+		}
+		x = 15
+		y = 6
+			completion_reward = {
+					set_rule = {
+							can_send_volunteers = yes
+						}
+					add_ideas = SOV_rus_legion
+				}
+
+	}
+	focus = {
+		id = SOV_liberators
+		icon = GFX_focus_hol_liberation
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_russian_legionaries
+		}
+		prerequisite = {
+			focus = SOV_culture_ministry
+		}
+		x = 13
+		y = 7
+			completion_reward = {
+					set_rule = {
+							can_create_collaboration_government = yes
+						}
+					add_ideas = SOV_liberators
+				}
+
+	}
+	focus = {
+		id = SOV_army_rebirth
+		icon = GFX_goal_continuous_reduce_training_time
+		cost = 20.00
+		prerequisite = {
+			focus = SOV_second_home_of_free
+		}
+		x = 22
+		y = 2
+			completion_reward = {
+					army_experience = 50
+					air_experience = 30
+					navy_experience = 20
+					add_tech_bonus = {
+							bonus = 2.0
+							uses = 2
+							category = land_doctrine
+						}
+					add_tech_bonus = {
+							bonus = 1.5
+							uses = 2
+							category = air_doctrine
+						}
+					add_tech_bonus = {
+							bonus = 1.0
+							uses = 2
+							category = naval_doctrine
+						}
+					country_event = wotp_soviet.104
+				}
+
+	}
+	focus = {
+		id = SOV_rus_fed_armed_forces
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 3.00
+		prerequisite = {
+			focus = SOV_peoples_alliance
+		}
+		prerequisite = {
+			focus = SOV_army_rebirth
+		}
+		x = 19
+		y = 3
+			completion_reward = {
+					add_ideas = SOV_rus_af
+				}
+
+	}
+	focus = {
+		id = SOV_ministry_of_defence
+		icon = GFX_goal_generic_army_doctrines
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_rus_fed_armed_forces
+		}
+		prerequisite = {
+			focus = SOV_army_rebirth
+		}
+		x = 20
+		y = 4
+			completion_reward = {
+					add_ideas = SOV_min_def
+					add_ideas = reformed_conscription
+				}
+
+	}
+	focus = {
+		id = SOV_dep_airforce
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_ministry_of_defence
+		}
+		x = 19
+		y = 5
+
+	}
+	focus = {
+		id = SOV_foreign_intelligence_service
+		icon = GFX_focus_eng_imperial_federation
+		cost = 6.00
+		prerequisite = {
+			focus = SOV_affairs_ministry
+		}
+		prerequisite = {
+			focus = SOV_ministry_of_defence
+		}
+		x = 16
+		y = 5
+			completion_reward = {
+					add_ideas = SOV_gru
+				}
+
+	}
+	focus = {
+		id = SOV_dep_fleet
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_ministry_of_defence
+		}
+		x = 21
+		y = 5
+
+	}
+	focus = {
+		id = SOV_revive_nep
+		icon = GFX_focus_YUG_pan_slavic_congress
+		cost = 6.00
+		prerequisite = {
+			focus = SOV_gurantee_liberties
+		}
+		x = 28
+		y = 1
+			completion_reward = {
+					add_ideas = SOV_nep
+				}
+
+	}
+	focus = {
+		id = SOV_workers_no_more
+		icon = GFX_goal_generic_national_unity
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_revive_nep
+		}
+		x = 27
+		y = 2
+			completion_reward = {
+					remove_ideas = SOV_violance
+					add_timed_idea = {
+							idea = SOV_social_adaptation
+							days = 180
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_open_borders
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 4.00
+		prerequisite = {
+			focus = SOV_second_home_of_free
+		}
+		prerequisite = {
+			focus = SOV_revive_nep
+		}
+		x = 30
+		y = 2
+			completion_reward = {
+					add_ideas = SOV_open_borders
+				}
+
+	}
+	focus = {
+		id = SOV_economics_ministry
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_open_borders
+		}
+		prerequisite = {
+			focus = SOV_workers_no_more
+		}
+		x = 26
+		y = 3
+			completion_reward = {
+					add_ideas = SOV_min_eco
+					add_ideas = reformed_economy
+				}
+
+	}
+	focus = {
+		id = SOV_private_arms_companies
+		icon = GFX_focus_generic_combined_arms
+		cost = 15.00
+		prerequisite = {
+			focus = SOV_economics_ministry
+		}
+		prerequisite = {
+			focus = SOV_army_rebirth
+		}
+		x = 24
+		y = 4
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = arms_factory
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = arms_factory
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 4
+							add_building_construction = {
+									type = arms_factory
+									level = 4
+									instant_build = yes
+								}
+						}
+					add_ideas = SOV_private_arms
+				}
+
+	}
+	focus = {
+		id = SOV_dep_infantry
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_ministry_of_defence
+		}
+		prerequisite = {
+			focus = SOV_private_arms_companies
+		}
+		x = 23
+		y = 5
+
+	}
+	focus = {
+		id = SOV_dep_sof
+		icon = GFX_focus_eng_special_air_service
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_foreign_intelligence_service
+		}
+		prerequisite = {
+			focus = SOV_ministry_of_defence
+		}
+		prerequisite = {
+			focus = SOV_dep_infantry
+		}
+		prerequisite = {
+			focus = SOV_dep_fleet
+		}
+		prerequisite = {
+			focus = SOV_dep_airforce
+		}
+		x = 20
+		y = 6
+
+	}
+	focus = {
+		id = SOV_foreign_investments
+		icon = GFX_focus_mex_privatisation
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_open_borders
+		}
+		x = 32
+		y = 3
+			completion_reward = {
+					add_timed_idea = {
+							idea = SOV_for_inv
+							days = 360
+						}
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = SOV_free_economic_zones
+		icon = GFX_focus_jap_zaibatsu
+		cost = 12.00
+		prerequisite = {
+			focus = SOV_foreign_investments
+		}
+		x = 31
+		y = 5
+			completion_reward = {
+					add_ideas = SOV_foreign_conc
+					add_political_power = 200
+					custom_effect_tooltip = SOV_fez_tt
+					hidden_effect = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = synthetic_refinery
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = synthetic_refinery
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = synthetic_refinery
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = synthetic_refinery
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = synthetic_refinery
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = synthetic_refinery
+											level = 3
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = synthetic_refinery
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = synthetic_refinery
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_plan_crusader
+		icon = GFX_focus_RAJ_two_nation_theory
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_global_intervention
+		}
+		x = 16
+		y = 9
+
+	}
+	focus = {
+		id = SOV_liberate_afghanistan
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_crusader
+		}
+		mutually_exclusive = {
+			focus = SOV_kabul_treaty
+		}
+		x = 14
+		y = 10
+
+	}
+	focus = {
+		id = SOV_plan_baptist
+		icon = GFX_focus_generic_strike_at_democracy2
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_liberators
+		}
+		x = 9
+		y = 8
+
+	}
+	focus = {
+		id = SOV_save_baltics
+		icon = GFX_focus_prc_infiltration
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_baptist
+		}
+		mutually_exclusive = {
+			focus = SOV_baltic_coop
+		}
+		x = 7
+		y = 9
+
+	}
+	focus = {
+		id = SOV_baltic_coop
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_baptist
+		}
+		prerequisite = {
+			focus = SOV_csto
+		}
+		mutually_exclusive = {
+			focus = SOV_save_baltics
+		}
+		x = 11
+		y = 9
+
+	}
+	focus = {
+		id = SOV_lwow_treaty
+		icon = GFX_focus_generic_polish_deal
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_save_baltics
+			focus = SOV_baltic_coop
+		}
+		mutually_exclusive = {
+			focus = SOV_save_east_slavs
+		}
+		x = 11
+		y = 10
+
+	}
+	focus = {
+		id = SOV_kickstarting_industry
+		icon = GFX_goal_generic_construction2
+		cost = 7.00
+		prerequisite = {
+			focus = SOV_gurantee_liberties
+		}
+		x = 35
+		y = 1
+			completion_reward = {
+					add_timed_idea = {
+							idea = SOV_kickstart
+							days = 180
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_light_industry_march_toss
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 15.00
+		prerequisite = {
+			focus = SOV_kickstarting_industry
+		}
+		x = 35
+		y = 2
+			completion_reward = {
+					custom_effect_tooltip = SOV_light_ind_tt
+					hidden_effect = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 3
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 3
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 4
+									add_building_construction = {
+											type = industrial_complex
+											level = 4
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 3
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 4
+									add_building_construction = {
+											type = industrial_complex
+											level = 4
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_perestroika
+		icon = GFX_goal_generic_construction
+		cost = 30.00
+		prerequisite = {
+			focus = SOV_light_industry_march_toss
+		}
+		x = 35
+		y = 3
+			completion_reward = {
+					custom_effect_tooltip = SOV_per_tt
+					hidden_effect = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = infrastructure
+													size > 4
+												}
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_window_to_west
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_economics_ministry
+		}
+		prerequisite = {
+			focus = SOV_free_economic_zones
+		}
+		x = 26
+		y = 6
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = SOV_west_window
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = SOV_west_window
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = SOV_west_window
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_international_research
+		icon = GFX_focus_research2
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_window_to_west
+		}
+		prerequisite = {
+			focus = SOV_free_economic_zones
+		}
+		x = 29
+		y = 7
+			completion_reward = {
+					add_to_tech_sharing_group = iro_research
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = SOV_expand_research
+		icon = GFX_focus_research
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_science_ministry
+		}
+		x = 9
+		y = 5
+			completion_reward = {
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = SOV_csto
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_foreign_intelligence_service
+			focus = SOV_window_to_west
+		}
+		x = 19
+		y = 7
+			completion_reward = {
+					set_rule = {
+							can_create_factions = yes
+						}
+					create_faction = SOV_CSTO
+				}
+
+	}
+	focus = {
+		id = SOV_global_intervention
+		icon = GFX_focus_jap_strike_south
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_russian_legionaries
+		}
+		prerequisite = {
+			focus = SOV_csto
+		}
+		x = 17
+		y = 8
+			completion_reward = {
+					set_rule = {
+							can_puppet = yes
+							can_declare_war_on_same_ideology = yes
+						}
+					add_ideas = SOV_world_int
+				}
+
+	}
+	focus = {
+		id = SOV_rapid_urbanization
+		icon = GFX_focus_generic_industry_3
+		cost = 8.00
+		prerequisite = {
+			focus = SOV_light_industry_march_toss
+			focus = SOV_workers_no_more
+			focus = SOV_open_borders
+		}
+		prerequisite = {
+			focus = SOV_light_industry_march_toss
+		}
+		x = 29
+		y = 3
+			completion_reward = {
+					add_ideas = SOV_urbanisation
+				}
+
+	}
+	focus = {
+		id = SOV_private_resource_miners
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 15.00
+		prerequisite = {
+			focus = SOV_perestroika
+		}
+		prerequisite = {
+			focus = SOV_foreign_investments
+		}
+		x = 34
+		y = 5
+			completion_reward = {
+					custom_effect_tooltip = SOV_pminc_tt
+					add_ideas = SOV_private_miners
+					hidden_effect = {
+							add_resource = {
+									type = oil
+									amount = 33
+									state = 516
+								}
+							add_resource = {
+									type = steel
+									amount = 36
+									state = 516
+								}
+							add_resource = {
+									type = chromium
+									amount = 12
+									state = 516
+								}
+							add_resource = {
+									type = tungsten
+									amount = 9
+									state = 516
+								}
+							add_resource = {
+									type = oil
+									amount = 14
+									state = 579
+								}
+							add_resource = {
+									type = steel
+									amount = 25
+									state = 579
+								}
+							add_resource = {
+									type = chromium
+									amount = 13
+									state = 579
+								}
+							add_resource = {
+									type = oil
+									amount = 17
+									state = 580
+								}
+							add_resource = {
+									type = chromium
+									amount = 21
+									state = 580
+								}
+							add_resource = {
+									type = oil
+									amount = 15
+									state = 576
+								}
+							add_resource = {
+									type = tungsten
+									amount = 19
+									state = 576
+								}
+							add_resource = {
+									type = oil
+									amount = 19
+									state = 575
+								}
+							add_resource = {
+									type = tungsten
+									amount = 17
+									state = 575
+								}
+							add_resource = {
+									type = chromium
+									amount = 9
+									state = 575
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_healthcare_ministry
+		icon = GFX_focus_rom_parties_end
+		cost = 5.00
+		prerequisite = {
+			focus = SOV_rapid_urbanization
+		}
+		x = 29
+		y = 4
+			completion_reward = {
+					add_ideas = SOV_min_health
+				}
+
+	}
+	focus = {
+		id = SOV_save_east_slavs
+		icon = GFX_focus_focus_fra_revolution_upmost
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_save_baltics
+			focus = SOV_baltic_coop
+		}
+		mutually_exclusive = {
+			focus = SOV_lwow_treaty
+		}
+		x = 7
+		y = 10
+
+	}
+	focus = {
+		id = SOV_roman_int
+		icon = GFX_focus_generic_provoke_border_clashes
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_lwow_treaty
+			focus = SOV_save_east_slavs
+		}
+		mutually_exclusive = {
+			focus = SOV_bucharest_treaty
+		}
+		x = 7
+		y = 11
+
+	}
+	focus = {
+		id = SOV_bucharest_treaty
+		icon = GFX_focus_invite_romania
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_save_east_slavs
+			focus = SOV_lwow_treaty
+		}
+		mutually_exclusive = {
+			focus = SOV_roman_int
+		}
+		x = 11
+		y = 11
+
+	}
+	focus = {
+		id = SOV_plan_avenger
+		icon = GFX_focus_chi_one_china_policy
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_global_intervention
+		}
+		x = 22
+		y = 9
+
+	}
+	focus = {
+		id = SOV_kabul_treaty
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_crusader
+		}
+		mutually_exclusive = {
+			focus = SOV_liberate_afghanistan
+		}
+		x = 18
+		y = 10
+
+	}
+	focus = {
+		id = SOV_crush_iran
+		icon = GFX_focus_SAF_colonialist_crusade
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_kabul_treaty
+			focus = SOV_liberate_afghanistan
+		}
+		mutually_exclusive = {
+			focus = SOV_tehran_treaty
+		}
+		x = 14
+		y = 11
+
+	}
+	focus = {
+		id = SOV_tehran_treaty
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_liberate_afghanistan
+			focus = SOV_kabul_treaty
+		}
+		mutually_exclusive = {
+			focus = SOV_crush_iran
+		}
+		x = 18
+		y = 11
+
+	}
+	focus = {
+		id = SOV_card_blanche
+		icon = GFX_focus_RAJ_indianisation_of_army
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_tehran_treaty
+			focus = SOV_crush_iran
+		}
+		x = 16
+		y = 12
+
+	}
+	focus = {
+		id = SOV_devils_cove
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_bucharest_treaty
+			focus = SOV_roman_int
+		}
+		x = 9
+		y = 12
+
+	}
+	focus = {
+		id = SOV_revenge_chinghis
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_avenger
+		}
+		x = 21
+		y = 10
+
+	}
+	focus = {
+		id = SOV_annex_tuva
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_global_intervention
+			focus = SOV_csto
+		}
+		x = 19
+		y = 9
+
+	}
+	focus = {
+		id = SOV_operation_varyag
+		icon = GFX_focus_AST_war_japan
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_plan_avenger
+		}
+		x = 23
+		y = 10
+
+	}
+	focus = {
+		id = SOV_eliminate_warlords
+		icon = GFX_focus_generic_manpower
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_isolate_china
+		}
+		x = 22
+		y = 12
+
+	}
+	focus = {
+		id = SOV_isolate_china
+		icon = GFX_goal_generic_trade
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_revenge_chinghis
+		}
+		prerequisite = {
+			focus = SOV_operation_varyag
+		}
+		x = 22
+		y = 11
+
+	}
+	focus = {
+		id = SOV_champion_of_peace
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_card_blanche
+		}
+		prerequisite = {
+			focus = SOV_eliminate_warlords
+		}
+		prerequisite = {
+			focus = SOV_devils_cove
+		}
+		x = 16
+		y = 14
+
+	}
+}

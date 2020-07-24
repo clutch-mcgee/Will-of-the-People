@@ -1,0 +1,19 @@
+spriteTypes = {	
+
+	### categories
+	
+
+	spriteType = {
+		name = "GFX_decision_category_sov_assembly_councillors_ui"
+		textureFile = "gfx/interface/decision_category_sov_assembly_councillors_ui.dds"
+		noOfFrames = 21
+	}
+	spriteType = {
+		name = "GFX_decision_category_sov_assembly_deputies_ui"
+		textureFile = "gfx/interface/decision_category_sov_assembly_deputies_ui.dds"
+		noOfFrames = 21
+	}
+
+	
+
+}

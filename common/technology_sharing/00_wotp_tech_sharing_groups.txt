@@ -1,0 +1,33 @@
+
+ technology_sharing_group = {
+
+	id = iro_research
+	name = iro_research_name
+	desc = iro_research_desc
+	picture = GFX_commonwealth_research
+    
+	research_sharing_per_country_bonus = 0.1
+    available = {
+        is_in_faction_with = SOV
+        SOV = { has_government = democratic }
+		ROOT = { has_government = democratic }
+    }
+
+}
+
+ technology_sharing_group = {
+
+	id = csto_mil_research
+	name = csto_mil_research_name
+	desc = csto_mil_research_desc
+	picture = GFX_commonwealth_research
+    
+	research_sharing_per_country_bonus = 0.1
+    available = {
+        is_in_faction_with = SOV
+        SOV = { has_government = democratic }
+		ROOT = { has_government = democratic }
+    }
+
+}
+

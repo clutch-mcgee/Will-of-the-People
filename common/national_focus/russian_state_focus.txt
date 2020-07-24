@@ -1,0 +1,43 @@
+focus_tree = {
+	id = russian_state_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 0
+			tag = SOV
+		}
+	}
+	default = no
+	focus = {
+		id = SOV_one_party_again
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 10.00
+		x = 5
+		y = 1
+
+	}
+	focus = {
+		id = SOV_gov_question
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10.00
+		x = 1
+		y = 2
+
+	}
+	focus = {
+		id = SOV_army_reform_fas
+		icon = GFX_focus_chi_army_reform
+		cost = 10.00
+		x = 9
+		y = 3
+
+	}
+	focus = {
+		id = SOV_arm_question
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		x = 6
+		y = 2
+
+	}
+}

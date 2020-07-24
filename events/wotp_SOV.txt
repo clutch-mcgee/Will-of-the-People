@@ -1,0 +1,1234 @@
+﻿###########################
+# Soviet Events
+###########################
+
+add_namespace = wotp_soviet
+add_namespace = kremlin
+add_namespace = guard
+
+
+country_event = {
+	id = wotp_soviet.1
+	title = wotp_soviet.1.t
+	desc = wotp_soviet.1.d
+	picture = GFX_report_event_generic_research_lab
+	
+	is_triggered_only = yes
+	
+	option = { # Controlled growth and minimal h-care
+		name = wotp_soviet.1.a
+		ai_chance = { factor = 60 }
+		add_political_power = -50
+		swap_ideas = {
+		remove_idea = SOV_min_health
+		add_idea = SOV_min_health_low
+		}
+	}
+	option = { # rapid growth and more care
+		name = wotp_soviet.1.b
+		ai_chance = { factor = 40 }
+		add_political_power = -100
+		swap_ideas = {
+		remove_idea = SOV_min_health
+		add_idea = SOV_min_health_high
+		}
+	}
+}
+
+################### KREMLIN ####################
+
+country_event = {
+	id = kremlin.0
+	title = kremlin.0.t
+	desc = kremlin.0.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Controlled growth and minimal h-care
+		name = kremlin.0.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.1
+	}
+}
+
+country_event = {
+	id = kremlin.1
+	title = kremlin.1.t
+	desc = kremlin.1.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Wrong
+		name = kremlin.1.a
+		ai_chance = { factor = 20 }
+		country_event = kremlin.2
+		}
+	option = { # Right
+		name = kremlin.1.b
+		ai_chance = { factor = 80 }
+		trigger = {has_stability < 20 has_war_support < 50 communism < 50}
+		country_event = kremlin.3
+		}
+}
+
+
+country_event = {
+	id = kremlin.2
+	title = kremlin.2.t
+	desc = kremlin.2.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Git gut better luck next time
+		name = kremlin.2.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.4
+		}
+}
+
+
+country_event = {
+	id = kremlin.3
+	title = kremlin.3.t
+	desc = kremlin.3.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Wrong
+		name = kremlin.3.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.5
+	}
+	option = { # Right
+		name = kremlin.3.b
+		ai_chance = { factor = 60 }
+		trigger = {has_stability < 1 has_war_support < 30 communism < 30}
+		country_event = kremlin.6
+	}
+}
+
+country_event = {
+	id = kremlin.4
+	title = kremlin.4.t
+	desc = kremlin.4.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # ded
+		name = kremlin.4.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.7
+	}
+}
+
+country_event = {
+	id = kremlin.5
+	title = kremlin.5.t
+	desc = kremlin.5.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # i ain't done nothing
+		name = kremlin.5.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.8
+	}
+}
+
+country_event = {
+	id = kremlin.6
+	title = kremlin.6.t
+	desc = kremlin.6.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # wipity-wopity slaves are property
+		name = kremlin.6.a
+		ai_chance = { factor = 60 }
+		country_event = kremlin.9
+	}
+}
+
+country_event = {
+	id = kremlin.7
+	title = kremlin.7.t
+	desc = kremlin.7.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Purge succesful
+		name = kremlin.7.a
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_purge_ongoing
+		complete_national_focus = SOV_great_purge
+		}
+}
+
+
+country_event = {
+	id = kremlin.8
+	title = kremlin.8.t
+	desc = kremlin.8.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Rebellion (aka survivors coup)
+		name = kremlin.8.a
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_purge_ongoing
+		}
+}
+
+
+country_event = {
+	id = kremlin.9
+	title = kremlin.9.t
+	desc = kremlin.9.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Mission Complete
+		name = kremlin.9.a
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_purge_ongoing
+		complete_national_focus = SOV_op_white_kremlin
+	}
+}
+
+
+country_event = {
+	id = kremlin.10
+	title = kremlin.10.t
+	desc = kremlin.10.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = no
+	mean_time_to_happen = { days = 1 } 
+	fire_only_once = yes
+	
+	trigger = { 
+	has_completed_focus = SOV_wrong_way 
+	NOT = {
+	OR = { has_completed_focus = SOV_op_white_guard
+		   has_completed_focus = SOV_op_white_kremlin
+		   }
+		}
+	date > 1936.08.01
+	}
+	
+	option = { # lol nkvd
+		name = kremlin.5.a
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_purge_ongoing
+		complete_national_focus = SOV_great_purge
+	}
+}
+
+country_event = {
+	id = kremlin.11
+	title = kremlin.11.t
+	desc = kremlin.11.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # arrest nazi
+		name = kremlin.11.a
+		ai_chance = { factor = 60 }
+		random_list = {
+		15 = { start_civil_war = {
+			ideology = fascism
+			size = 0.1
+			#only_own_territory = yes
+			} }
+			85 = {}
+		}
+		add_stability = 0.1
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.05
+		}
+		add_popularity = {
+		ideology = fascism
+		popularity = -0.05
+		}
+		remove_ideas = SOV_fascist_raids
+		
+	}
+	option = { # ban nazi
+		name = kremlin.11.b
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_fascist_raids
+		random_list = {
+		30 = { start_civil_war = {
+			ideology = fascism
+			size = 0.2
+			#only_own_territory = yes
+			} }
+			70 = {}
+		}
+		add_stability = -0.05
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.10
+		}
+		add_popularity = {
+		ideology = fascism
+		popularity = -0.14
+		}
+		add_ideas = SOV_fas_ban
+	}
+	option = { # shoot nazi
+		name = kremlin.11.c
+		ai_chance = { factor = 60 }
+		remove_ideas = SOV_fascist_raids
+		random_list = {
+		50 = { start_civil_war = {
+			ideology = fascism
+			size = 0.3
+			#only_own_territory = yes
+			} }
+			50 = { 
+			} 
+		}
+		add_stability = -0.2
+		add_popularity = {
+		ideology = democratic
+		popularity = -0.10
+		}
+		add_popularity = {
+		ideology = fascism
+		popularity = -0.40
+		}
+	}
+}
+###################GUARD####################################
+country_event = {
+	id = guard.0
+	title = guard.0.t
+	desc = guard.0.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # May God be on our side
+		name = guard.0.a
+		ai_chance = { factor = 60 }
+		country_event = guard.1
+	}
+}
+
+country_event = {
+	id = guard.1
+	title = guard.1.t
+	desc = guard.1.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Vladivostok
+		name = guard.1.a
+		ai_chance = { factor = 60 }
+		country_event = guard.2
+	}
+	
+	option = { # St. Petersburg
+		name = guard.1.b
+		ai_chance = { factor = 40 }
+		country_event = guard.2
+	}
+}
+
+country_event = {
+	id = guard.2
+	title = guard.2.t
+	desc = guard.2.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Kuban Front
+		name = guard.2.a
+		ai_chance = { factor = 60 }
+		country_event = guard.3
+	}
+	
+	option = { # Slavic and Caucasus uprising
+		name = guard.2.b
+		ai_chance = { factor = 60 }
+		country_event = guard.3
+	}
+}
+
+country_event = {
+	id = guard.3
+	title = guard.3.t
+	desc = guard.3.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Central Asian front
+		name = guard.3.a
+		ai_chance = { factor = 60 }
+		country_event = guard.4
+	}
+	
+	option = { # Asian uprising
+		name = guard.3.b
+		ai_chance = { factor = 60 }
+		country_event = guard.4
+	}
+	
+}
+
+country_event = {
+	id = guard.4
+	title = guard.4.t
+	desc = guard.4.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Annex Tuva, give Sakhalin, Mongolia
+		name = guard.4.a
+		ai_chance = { factor = 60 }
+		country_event = guard.5
+	}
+	
+	option = { # Annex Tuva, liberate Mongolia
+		name = guard.4.b
+		ai_chance = { factor = 60 }
+		country_event = guard.5
+	}
+	
+	option = { # Annex Tuva and Mongolia
+		name = guard.4.c
+		ai_chance = { factor = 60 }
+		country_event = guard.5
+	}
+	
+}
+
+country_event = {
+	id = guard.5
+	title = guard.5.t
+	desc = guard.5.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # Japaneese Help
+		trigger = { 655 = {is_owned_by = JAP} } 
+		name = guard.5.a
+		ai_chance = { factor = 20 }
+		country_event = guard.7
+	}
+	
+	option = { # Italian help
+	trigger = {SOV = {fascism>0.3}}
+		name = guard.5.b
+		ai_chance = { factor = 40 }
+		country_event = guard.8
+	}
+	
+	option = { # British help
+			trigger = {	MON = {
+			country_exists=yes 
+			OR = { has_government=democratic has_government=neutrality } 
+			is_in_faction = no 
+				}
+			}
+		name = guard.5.c
+		ai_chance = { factor = 30 }
+		country_event = guard.9
+	}
+	option = { # On our own
+		name = guard.5.d
+		ai_chance = { factor = 10 }
+		country_event = guard.6
+	}
+}
+
+country_event = {
+	id = guard.6
+	title = guard.6.t
+	desc = guard.6.d
+	picture = GFX_report_event_french_resistance_02
+	
+	is_triggered_only = yes
+	
+	option = { # slav + asia
+		name = guard.6.a
+		ai_chance = { factor = 60 }
+		start_civil_war = {
+				ruling_party = neutrality								#kazakh 407 406 402 587 583 404 588 589 590 586 #kuban 232 233 234 235 236 237 238 218 137 685 #asia 585 405 732 742 584 #caucasus 229 230 231
+				ideology = communism
+				size = 0.3
+				capital = 219
+				states = {  219 407 406 402 587 583 404 588 589 590 586 }
+			}
+	}
+	option = { # slav + kazakh
+		name = guard.6.b
+		ai_chance = { factor = 60 }
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.5
+				
+			}
+	}
+	option = { # kuban + kazakh
+		name = guard.6.c
+		ai_chance = { factor = 60 }
+		start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.5
+				capital = 219
+				states = {  165 167 168 173 175 790 792 793 794 }
+			}
+	}
+	option = { # kuban + asia
+		name = guard.6.d
+		ai_chance = { factor = 60 }
+		start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.5
+				capital = 219
+				states = { 165 167 168 173 175 790 792 793 794 }
+			}
+	}
+	
+}
+############################################################
+country_event = {
+	id = wotp_soviet.2
+	title = wotp_soviet.2.t
+	desc = wotp_soviet.2.d
+	picture = GFX_report_event_soviet_purge_politicians
+	
+	is_triggered_only = yes
+	
+	option = { # execute as traitors
+		name = wotp_soviet.2.a
+		ai_chance = { factor = 60 }
+		add_political_power = 150
+		add_stability = -0.1
+		add_popularity = {
+		ideology = fascism
+		popularity = 0.13
+		}
+		add_popularity = {
+		ideology = democratic
+		popularity = -0.11
+		}
+		add_popularity = {
+		ideology = communism
+		popularity = -0.4
+		}
+	}
+	option = { # imprison
+		name = wotp_soviet.2.b
+		ai_chance = { factor = 40 }
+		add_political_power = 50
+		add_stability = 0.1
+		add_popularity = {
+		ideology = communism
+		popularity = -0.10
+		}
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.08
+		}
+		add_popularity = {
+		ideology = fascism
+		popularity = -0.13
+		}
+	}
+}
+
+country_event = {
+	id = wotp_soviet.3
+	title = wotp_soviet.3.t
+	desc = wotp_soviet.3.d
+	picture = GFX_report_event_bose
+	
+	is_triggered_only = yes
+	
+	option = { # secular
+		name = wotp_soviet.3.a
+		ai_chance = { factor = 50 }
+		add_political_power = -200
+		add_stability = 0.2
+		
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.13
+		}
+		add_popularity = {
+		ideology = communism
+		popularity = 0.05
+		}
+	}
+	option = { # dominant
+		name = wotp_soviet.3.b
+		ai_chance = { factor = 30 }
+		add_political_power = -100
+		add_stability = 0.1
+		
+		add_popularity = {
+		ideology = fascism
+		popularity = 0.05
+		}
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.03
+		}
+	}
+	option = { # state
+		name = wotp_soviet.3.c
+		ai_chance = { factor = 20 }
+		add_political_power = 100
+		add_stability = 0.2
+		
+		add_popularity = {
+		ideology = fascism
+		popularity = 0.13
+		}
+		add_popularity = {
+		ideology = democratic
+		popularity = -0.11
+		}
+	}
+	option = { # ATHEIST
+		name = wotp_soviet.3.e
+		ai_chance = { factor = 50 }
+		add_political_power = 200
+		add_stability = -0.2
+		
+		add_popularity = {
+		ideology = democratic
+		popularity = 0.05
+		}
+		add_popularity = {
+		ideology = communism
+		popularity = 0.17
+		}
+	}
+}
+
+country_event = {
+	id = wotp_soviet.17
+	title = wotp_soviet.17.t
+	desc = wotp_soviet.17.d
+	picture = GFX_report_event_soviet_purge_politicians
+	
+	is_triggered_only = no
+	mean_time_to_happen = { days = 1 } 
+	fire_only_once = yes
+	
+	trigger = { 
+	has_completed_focus = SOV_red_menace
+	}
+	
+	option = { # Your destiny
+		name = wotp_soviet.17.a
+		ai_chance = { factor = 60 }
+		if = {
+				limit = {
+				  has_completed_focus = SOV_op_white_kremlin
+				}
+				load_focus_tree = russian_fed_focus
+			}
+		if = {
+			limit = {
+				  has_completed_focus = SOV_op_white_guard
+			}
+			load_focus_tree = russian_emp_focus
+		}
+		if = {
+			limit = {
+			  fascism >0.5
+			}
+			load_focus_tree = russian_state_focus
+		}
+	}
+
+}
+###################### REFERENDUM #######################
+country_event = {
+	id = wotp_soviet.4
+	title = wotp_soviet.4.t
+	desc = wotp_soviet.4.d
+	picture = report_event_generic_peaceful_annexation
+	
+	is_triggered_only = yes
+	
+	option = { # words
+		name = wotp_soviet.4.a
+		ai_chance = { factor = 50 }
+		if = { limit = { has_stability > 0.8 }
+		country_event = wotp_soviet.5 #kk
+		}
+		if = { limit = { has_stability < 0.8 has_stability > 0.5  }
+		country_event = wotp_soviet.6 #more
+		}
+		if = { limit = { has_stability < 0.5 }
+		country_event = wotp_soviet.7 #RIP
+		}
+	}
+	#option = { # force
+	#	name = wotp_soviet.4.b
+	#	ai_chance = { factor = 50 }
+	#	if = { limit = { has_war_support > 0.7 }
+	#	country_event = wotp_soviet.8 #banned
+	#	}
+	#	if = { limit = { has_war_support < 0.7 has_war_support > 0.5  }
+	#	country_event = wotp_soviet.9 #SOlution
+	#	}
+	#	if = { limit = { has_war_support < 0.5 }
+	#	country_event = wotp_soviet.10 #REVOlution
+	#	}
+	#	
+	#}
+}
+
+country_event = {
+	id = wotp_soviet.5
+	title = wotp_soviet.5.t
+	desc = wotp_soviet.5.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	option = { # CHEERS!!
+		name = wotp_soviet.5.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.2
+	}
+	
+}
+
+country_event = {
+	id = wotp_soviet.6
+	title = wotp_soviet.6.t
+	desc = wotp_soviet.6.d
+	picture = GFX_report_event_soviet_invasion_map
+	
+	is_triggered_only = yes
+	
+	option = { # Offer Exchange
+		name = wotp_soviet.6.a
+		ai_chance = { factor = 60 }
+		add_political_power = -100
+		add_stability = -0.05
+		random_list = {
+		60 = {country_event = wotp_soviet.14}
+		40 = {country_event = wotp_soviet.15}
+		}
+	}
+	
+	option = { # Leave as is
+		name = wotp_soviet.6.b
+		ai_chance = { factor = 40 }
+		add_stability = 0.05
+		release_puppet = BLR
+		release_puppet = UKR
+		country_event = wotp_soviet.11
+	}
+}
+
+country_event = {
+	id = wotp_soviet.7
+	title = wotp_soviet.7.t
+	desc = wotp_soviet.7.d
+	picture = GFX_report_event_gathering_protest
+	
+	is_triggered_only = yes
+	
+	option = { # RIP
+		name = wotp_soviet.7.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.1
+		add_war_support = 0.1
+		hidden_effect = {
+		release = UZB
+		release = TAJ
+		release = KYR
+		release = TKS
+		release = KAZ
+		release = BLR
+		release = UKR
+		release = GEO
+		release = AZR
+		release = ARM
+		}
+	}
+	
+}
+
+country_event = {
+	id = wotp_soviet.11
+	title = wotp_soviet.11.t
+	desc = wotp_soviet.11.d
+	picture = GFX_report_event_aid_pact
+	
+	is_triggered_only = yes
+	
+	option = { # Agree
+		name = wotp_soviet.11.a
+		ai_chance = { factor = 50 }
+		add_political_power = -200
+		add_stability = -0.1
+		release_puppet = KAZ
+		hidden_effect = {
+		SOV = {
+		transfer_state = 406 transfer_state = 407 transfer_state = 583 transfer_state = 590 transfer_state = 588
+		add_state_core = 406 add_state_core = 407 add_state_core = 583 add_state_core = 590 add_state_core = 588
+		} }
+		country_event = wotp_soviet.13
+	}
+	option = { # Disagree
+		name = wotp_soviet.11.b
+		ai_chance = { factor = 50 }
+		add_stability = 0.1
+		release_puppet = KAZ
+		country_event = wotp_soviet.12
+	}
+	
+}
+
+country_event = {
+	id = wotp_soviet.12
+	title = wotp_soviet.12.t
+	desc = wotp_soviet.12.d
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = yes
+	
+	option = { # Release central asia
+		name = wotp_soviet.12.a
+		ai_chance = { factor = 70 }
+		add_political_power = 500
+		add_stability = 0.2
+		add_war_support = 0.1
+		hidden_effect = {
+		release_puppet = UZB
+		release_puppet = TAJ
+		release_puppet = KYR
+		release_puppet = TKS
+		}
+		country_event = wotp_soviet.16
+	}
+	
+	#option = { # release united CA
+	#	name = wotp_soviet.12.b
+	#	ai_chance = { factor = 30 }
+	#	add_political_power = 300
+	#	add_stability = 0.1
+	#	add_war_support = 0.2
+	#	hidden_effect = {
+	#	release_puppet = UZB
+	#	release_puppet = TAJ
+	#	release_puppet = KYR
+	#	release_puppet = TKS
+	#	}
+	#	country_event = wotp_soviet.16
+	#}
+	
+}
+
+country_event = {
+	id = wotp_soviet.13
+	title = wotp_soviet.13.t
+	desc = wotp_soviet.13.d
+	picture = GFX_report_event_german_inspect_troops
+	
+	is_triggered_only = yes
+	
+	option = { # Freedom betrayed
+		name = wotp_soviet.13.a
+		ai_chance = { factor = 60 }
+		add_political_power = 300
+		add_stability = -0.05
+		add_war_support = -0.1
+		hidden_effect = {
+		KAZ = { transfer_state = 584 transfer_state = 585 transfer_state = 742 transfer_state = 732 transfer_state = 405
+				add_state_core = 584 add_state_core = 585 add_state_core = 742 add_state_core = 732 add_state_core = 405
+		} }
+		country_event = wotp_soviet.16
+		
+	}
+	
+	option = { #  KAZ betrayed
+		name = wotp_soviet.13.b
+		ai_chance = { factor = 40 }
+		add_political_power = 500
+		add_stability = -0.10
+		add_war_support = -0.2
+		hidden_effect = {
+		release_puppet = UZB
+		release_puppet = TAJ
+		release_puppet = KYR
+		release_puppet = TKS
+		}
+		country_event = wotp_soviet.16
+	}
+	
+}
+
+country_event = {
+	id = wotp_soviet.14
+	title = wotp_soviet.14.t
+	desc = wotp_soviet.14.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	
+	is_triggered_only = yes
+	
+	option = { # Treaty of Kursk!
+		name = wotp_soviet.14.a
+		ai_chance = { factor = 40 }
+		add_war_support = 0.1
+		release_puppet = BLR
+		release_puppet = UKR
+		SOV = { transfer_state = 227 transfer_state = 228 transfer_state = 241
+				add_state_core = 227 add_state_core = 228 add_state_core = 241
+		}
+		UKR = { add_state_core = 78 add_state_core = 80 }
+		BLR = { add_state_core = 78 }
+		country_event = wotp_soviet.11
+	}
+}
+
+country_event = {
+	id = wotp_soviet.15
+	title = wotp_soviet.15.t
+	desc = wotp_soviet.15.d
+	picture = GFX_report_event_poland_rejects
+	
+	is_triggered_only = yes
+	
+	option = { # Oof
+		name = wotp_soviet.15.a
+		ai_chance = { factor = 100 }
+		add_stability = -0.10
+		release_puppet = BLR
+		release_puppet = UKR
+		country_event = wotp_soviet.11
+	}
+}
+
+country_event = {
+	id = wotp_soviet.16
+	title = wotp_soviet.16.t
+	desc = wotp_soviet.16.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # Rip Caucasus
+		name = wotp_soviet.16.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.05
+		add_war_support = -0.05
+		release_puppet = GEO
+		release_puppet = AZR
+		release_puppet = ARM
+		
+	}
+}
+
+#country_event = {
+#	id = wotp_soviet.18
+#	title = wotp_soviet.18.t
+#	desc = wotp_soviet.18.d
+#	picture = GFX_report_event_spr_anarchist_success
+#	
+#	is_triggered_only = yes
+#	
+#	option = { # Rip Caucasus
+#		name = wotp_soviet.16.a
+#		ai_chance = { factor = 100 }
+#		add_stability = 0.05
+#		add_war_support = -0.05
+#		release_puppet = GEO
+#		release_puppet = AZR
+#		release_puppet = ARM
+#		
+#	}
+#}
+
+##################################################################################
+
+########################### NEWS ##############################
+news_event = {
+	id = wotp_soviet.100 # union keeps
+	title = wotp_soviet.100.t
+	desc = wotp_soviet.100.d
+	picture = GFX_news_event_nuke 
+
+	major = yes 
+
+	is_triggered_only = yes 
+
+	fire_only_once = yes 
+
+	option = { 
+		name = wotp_soviet.100.b
+		trigger = {tag = SOV}
+	}
+	
+	option = { 
+		name = wotp_soviet.100.a
+		trigger = { NOT = {tag = SOV} }
+	}
+
+}
+
+news_event = {
+	id = wotp_soviet.101 # divided
+	title = wotp_soviet.101.t
+	desc = wotp_soviet.101.d
+	picture = GFX_news_event_nuke 
+
+	major = yes 
+
+	is_triggered_only = yes 
+
+	fire_only_once = yes 
+
+	option = { 
+		name = wotp_soviet.101.b
+		trigger = {tag = SOV}
+	}
+	
+	option = { 
+		name = wotp_soviet.101.a
+		trigger = { NOT = {tag = SOV} }
+	}
+
+}
+
+news_event = {
+	id = wotp_soviet.102 # Fall of the Union
+	title = wotp_soviet.102.t
+	desc = wotp_soviet.102.d
+	picture = GFX_news_event_nuke 
+
+	major = yes 
+
+	is_triggered_only = yes 
+
+	fire_only_once = yes 
+
+	option = { 
+		name = wotp_soviet.102.b
+		trigger = {tag = SOV}
+	}
+	
+	option = { 
+		name = wotp_soviet.102.a
+		trigger = { NOT = {tag = SOV} }
+	}
+
+}
+####################REFORM#################
+country_event = {
+	id = wotp_soviet.103
+	title = wotp_soviet.103.t
+	desc = wotp_soviet.103.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	fire_only_once = yes
+	
+	trigger = { tag = SOV NOT = {has_government=communism} has_template = "NKVD Pogranichnaya Diviziya" }
+	
+	option = { # rip nkvd
+		name = wotp_soviet.103.a
+		ai_chance = { factor = 60 }
+		add_war_support = 0.05
+		add_stability = 0.1
+		division_template = {
+			name = "Pogranotryad"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 1 y = 0 }
+			}
+			support = { 
+				engineer = { x = 0 y = 1 }
+			} 
+		}
+		hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "NKVD Pogranichnaya Diviziya"
+				} }
+	}
+}
+country_event = {
+	id = wotp_soviet.104
+	title = wotp_soviet.104.t
+	desc = wotp_soviet.104.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+	
+	option = { # rip army
+		name = wotp_soviet.104.a
+		ai_chance = { factor = 60 }
+		add_war_support = -0.2
+		army_experience = 50
+		division_template = {
+			name = "Okhranka"
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 1 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 1 y = 1 }
+			}
+			support = { 
+				military_police = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			} 
+		}
+		add_timed_idea = {idea = SOV_recruitment days = 180}
+		hidden_effect = {
+			delete_unit_template_and_units = {
+				division_template = "Mekhanizirovaniy Korpus"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Vozdushno-Desantnaya Brigada"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Kavaleriyskaya Diviziya"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Motostrelkovaya Diviziya"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Gornostrelkovaya Diviziya"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Strelkovaya Diviziya"
+			}
+			SOV = {
+				country_lock_all_division_template = no		
+			}
+		}
+	}
+	option = { # leave inf
+		name = wotp_soviet.104.b
+		ai_chance = { factor = 30 }
+		add_war_support = -0.10
+		army_experience = 10
+		hidden_effect = {		
+			delete_unit_template_and_units = {
+				division_template = "Motostrelkovaya Diviziya"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Mekhanizirovaniy Korpus"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Vozdushno-Desantnaya Brigada"
+			}
+			delete_unit_template_and_units = {
+				division_template = "Kavaleriyskaya Diviziya"
+			}
+			SOV = {
+				country_lock_all_division_template = no		
+			}
+		}
+	}
+	option = { # dumb
+		name = wotp_soviet.104.c
+		ai_chance = { factor = 10 }
+		add_war_support = -0.30
+		army_experience = 30
+		hidden_effect = {
+					SOV = {
+				country_lock_all_division_template = no		
+			}
+				}
+	}
+}
+
+country_event = {
+	id = wotp_soviet.105
+	title = wotp_soviet.105.t
+	desc = wotp_soviet.105.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	fire_only_once = yes
+
+	trigger = {
+	tag = SOV 
+	date<1936.01.07
+	date>1936.01.01 
+	NOT = { OR = {
+		has_completed_focus = SOV_great_purge
+		has_completed_focus = SOV_army_rebirth}	
+		}
+	}
+	
+	option = { # rip army
+		name = wotp_soviet.105.a
+		ai_chance = { factor = 100 }
+		add_ideas = SOV_bad_army
+		hidden_effect = {
+					
+		}
+	}
+	
+}
+###################SENATE
+country_event = {
+	id = wotp_soviet.106
+	title = wotp_soviet.106.t
+	desc = wotp_soviet.106.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # Rip 
+		name = wotp_soviet.106.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			clear_variable = deputies_for_reelection
+			clear_variable = dep_loc
+		}
+		
+	}
+}
+country_event = {
+	id = wotp_soviet.107
+	title = wotp_soviet.107.t
+	desc = wotp_soviet.107.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # Rip 
+		name = wotp_soviet.107.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			clear_variable = councillors_for_reelection
+			clear_variable = coc_loc
+		}
+		
+	}
+}
+##############################
