@@ -5,7 +5,7 @@
 add_namespace = wotp_soviet
 add_namespace = kremlin
 add_namespace = guard
-
+add_namespace = cw_dem
 
 country_event = {
 	id = wotp_soviet.1
@@ -68,7 +68,7 @@ country_event = {
 	option = { # Right
 		name = kremlin.1.b
 		ai_chance = { factor = 80 }
-		trigger = {has_stability < 20 has_war_support < 50 communism < 50}
+		trigger = {has_stability < 10 has_war_support < 30 communism < 50}
 		country_event = kremlin.3
 		}
 }
@@ -106,7 +106,7 @@ country_event = {
 	option = { # Right
 		name = kremlin.3.b
 		ai_chance = { factor = 60 }
-		trigger = {has_stability < 1 has_war_support < 30 communism < 30}
+		trigger = {has_stability < 1 has_war_support < 10 communism < 20}
 		country_event = kremlin.6
 	}
 }
@@ -184,10 +184,28 @@ country_event = {
 	option = { # Rebellion (aka survivors coup)
 		name = kremlin.8.a
 		ai_chance = { factor = 60 }
-		remove_ideas = SOV_purge_ongoing
-		}
+				remove_ideas = SOV_purge_ongoing
+			start_civil_war = {
+				ruling_party = communism							#kazakh 407 406 402 587 583 404 588 589 590 586 #kuban 232 233 234 235 236 237 238 218 137 685 #asia 585 405 732 742 584 #caucasus 229 230 231
+				ideology = neutrality
+				size = 0.37
+				capital = 217
+				states = {  217 218 245 265 239 401 407 406 236 237 238 234 235 232 233 231 229 230 137 196 200 226 227 228 260 240 221 220 225 259 203 192 197 239 401 #652 251 250 255 257 258 222}
+					}
+			}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SOV
+					has_government = neutrality
+				}
+			THIS = { change_tag_from = ROOT }
+			set_cosmetic_tag = RUS
+			#add_ideas = { SHO_last_stand SHO_struggle }
+			}
+		} 
+	}
 }
-
 
 country_event = {
 	id = kremlin.9
@@ -298,8 +316,7 @@ country_event = {
 			size = 0.3
 			#only_own_territory = yes
 			} }
-			50 = { 
-			} 
+			50 = { } 
 		}
 		add_stability = -0.2
 		add_popularity = {
@@ -975,7 +992,7 @@ country_event = {
 
 ########################### NEWS ##############################
 news_event = {
-	id = wotp_soviet.100 # union keeps
+	id = wotp_soviet.100 # union stands
 	title = wotp_soviet.100.t
 	desc = wotp_soviet.100.d
 	picture = GFX_news_event_nuke 
@@ -988,12 +1005,12 @@ news_event = {
 
 	option = { 
 		name = wotp_soviet.100.b
-		trigger = {tag = SOV}
+		trigger = {original_tag = SOV}
 	}
 	
 	option = { 
 		name = wotp_soviet.100.a
-		trigger = { NOT = {tag = SOV} }
+		trigger = { NOT = {original_tag = SOV} }
 	}
 
 }
@@ -1012,12 +1029,12 @@ news_event = {
 
 	option = { 
 		name = wotp_soviet.101.b
-		trigger = {tag = SOV}
+		trigger = {original_tag = SOV}
 	}
 	
 	option = { 
 		name = wotp_soviet.101.a
-		trigger = { NOT = {tag = SOV} }
+		trigger = { NOT = {original_tag = SOV} }
 	}
 
 }
@@ -1036,12 +1053,12 @@ news_event = {
 
 	option = { 
 		name = wotp_soviet.102.b
-		trigger = {tag = SOV}
+		trigger = {original_tag = SOV}
 	}
 	
 	option = { 
 		name = wotp_soviet.102.a
-		trigger = { NOT = {tag = SOV} }
+		trigger = { NOT = {original_tag = SOV} }
 	}
 
 }
@@ -1054,7 +1071,7 @@ country_event = {
 	
 	fire_only_once = yes
 	
-	trigger = { tag = SOV NOT = {has_government=communism} has_template = "NKVD Pogranichnaya Diviziya" }
+	trigger = { original_tag = SOV NOT = {has_government=communism} has_template = "NKVD Pogranichnaya Diviziya" }
 	
 	option = { # rip nkvd
 		name = wotp_soviet.103.a
@@ -1175,12 +1192,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-	tag = SOV 
+	original_tag = SOV 
 	date<1936.01.07
 	date>1936.01.01 
-	NOT = { OR = {
-		has_completed_focus = SOV_great_purge
-		has_completed_focus = SOV_army_rebirth}	
+	NOT = { 
+			OR = {
+				has_completed_focus = SOV_great_purge
+				has_completed_focus = SOV_army_rebirth
+			}	
 		}
 	}
 	
@@ -1232,3 +1251,53 @@ country_event = {
 	}
 }
 ##############################
+
+
+##############RUSSIAN CW - DEMOCRACY###################
+
+country_event = {
+	id = cw_dem.1
+	title = cw_dem.1.t
+	desc = cw_dem.1.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # ohh my UKRAINE
+		name = cw_dem.1.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			UKR = {
+				set_popularities = {
+					democratic = 27
+					neutrality = 15
+					fascism = 58
+					communism = 0
+				}
+				set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				}
+				set_party_name = { 
+				ideology = fascism
+				long_name = UKR_oun_upa_long
+				name = UKR_oun_upa
+				}
+				
+			}
+			release = UKR
+			UKR = {
+			add_civil_war_target = UKR
+				
+			}
+		}
+		UKR = {
+			declare_war_on = {
+				target = SOV
+				type = civil_war
+			} 
+		}
+		add_civil_war_target = UKR
+	}
+}
+
