@@ -512,7 +512,20 @@ ideas = {
 			opinion_gain_monthly_factor = -0.5
 			}
 		}
-		
+		SOV_ukr_insurgents = {
+
+			picture = ukr_insurgents
+
+			allowed = {
+				always = no # focus
+			}
+			modifier = {
+				argeted_modifier = { tag = UKR 
+				attack_bonus_against = -0.5 
+				defense_bonus_against = -0.5 
+				}
+			}
+		}
 	}
 	
 	economy = { 

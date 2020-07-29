@@ -1297,7 +1297,79 @@ country_event = {
 				type = civil_war
 			} 
 		}
+		add_ideas = { SOV_ukr_insurgents }
 		add_civil_war_target = UKR
+	}
+	
+}
+
+country_event = {
+	id = cw_dem.2
+	title = cw_dem.2.t
+	desc = cw_dem.2.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # ohh my UKRAINE fights us
+		name = cw_dem.2.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+
+		}
+		THIS = {
+			declare_war_on = {
+				target = UKR
+				type = civil_war
+			} 
+		}
+		add_civil_war_target = UKR
+	}
+	option = { # ok u can get your land
+		name = cw_dem.2.b
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			
+		}
+		release = UKR
+		white_peace = UKR
 	}
 }
 
+country_event = {
+	id = cw_dem.3
+	title = cw_dem.3.t
+	desc = cw_dem.3.d
+	picture = GFX_report_event_spr_anarchist_success
+	
+	is_triggered_only = yes
+	
+	option = { # not in a good state to fight
+		name = cw_dem.3.b
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			add_political_power = -150
+		}
+		white_peace = UKR
+	}
+	
+	option = { # ohh my UKRAINE
+		name = cw_dem.3.a # no talks with traitors!
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			UKR = {
+				add_ideas = { UKR_burn_commies }
+				
+			}
+			UKR = {
+			add_civil_war_target = UKR
+				
+			}
+		}
+		#UKR = {
+		#	
+		#}
+		
+	}
+	
+}

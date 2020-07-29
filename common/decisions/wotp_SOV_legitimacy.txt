@@ -1,0 +1,154 @@
+SOV_legitimacy_cmd = {
+	
+	IMS_demand_compliance_chu = {
+
+		icon = chu_trade_unions_demand
+
+		allowed = {
+			tag = CHU
+		}
+
+		available = {
+			country_exists = IMS
+			IMS = { has_government = neutrality }
+			NOT = { has_country_flag = ims_complience_demanded }
+		}
+
+		days_remove = 7
+		
+		targets = { IMS }
+
+		target_trigger = {
+			FROM = {
+				tag = IMS
+			}
+		}
+
+		cost = 10
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 0.03
+			modifier = {
+				
+			}
+			
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = { var = chu_isles_crisis_power value = 5 }
+			set_country_flag = ims_complience_demanded
+			hidden_effect = {
+				country_event = { id = ims_crisis.304 days = 28 }
+			}
+		}
+	}
+}
+
+SOV_legitimacy_sov = {
+
+	SOV_promise_sov = {
+
+		icon = eng_trade_unions_support
+
+		allowed = {
+			tag = SOV
+		}
+
+		available = {
+			country_exists = SOV
+			SOV = { has_government = communism }
+			NOT = { has_country_flag = ims_talk_chu_sent }
+			
+		}
+
+		days_remove = 7
+		
+		targets = { IMS }
+
+		target_trigger = {
+			FROM = {
+				tag = IMS
+			}
+		}
+		
+		#days_re_enable = 14
+		
+		cost = 10
+
+		#fire_only_once = no
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+	
+			}
+			
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = { var = chu_isles_crisis_power value = 3 }
+			set_country_flag = ims_talk_chu_sent
+			hidden_effect = {
+					country_event = { id = ims_crisis.301 days = 14 }
+			}
+		}
+	}
+	
+	IMS_talk_shi = {
+
+		icon = chu_trade_unions_support
+
+		allowed = {
+			tag = IMS
+		}
+
+		available = {
+			country_exists = IMS
+			IMS = { has_government = neutrality }
+			NOT = { has_country_flag = ims_talk_shi_sent }
+		}
+
+		days_remove = 7
+		
+		targets = { IMS }
+
+		target_trigger = {
+			FROM = {
+				tag = IMS
+			}
+		}
+
+		# days_re_enable = 14
+
+		cost = 10
+
+		#fire_only_once = no
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+	
+			}
+			
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = { var = shi_isles_crisis_power value = 3 }
+			set_country_flag = ims_talk_shi_sent
+			hidden_effect = {
+				country_event = { id = ims_crisis.302 days = 14 }
+			}
+		}
+	}
+}
